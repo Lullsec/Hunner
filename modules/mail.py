@@ -1,52 +1,55 @@
-import smtplib
-import os,sys
-import time,random
-import threading
-import argparse
+import استيراد smtplib
+import استيراد نظام التشغيل، SYS
+import وقت الاستيراد، عشوائي
+import خيوط الاستيراد
+import import argparse
 
-H = '\033[95m'
-B = '\033[94m'
-G = '\033[92m'
-W = '\033[93m'
-F = '\033[91m'
-E = '\033[0m'
-U = '\033[4m'
-O = '\033[33m'
+ح = '\033[95م' '\033[95m'
+ب = '\033[94م' '\033[94m'
+ز = '\033[92م' '\033[92m'
+ث = '\033[93م' '\033[93m'
+و = '\033[91م' '\033[91m'
+ه = '\033[0م' '\033[0m'
+ش = '\033[4م' '\033[4m'
+أو = '\033[33م' '\033[33m'
 
-serv = None
-port = 587
+يخدم = لا شيء None
+المنفذ = 587 587
 
-os.chdir('modules/')
-parser = argparse.ArgumentParser(description="Framework Hunner")
-parser.add_argument('login', help='Target email')
-parser.add_argument('password', help='Password list')
-args = parser.parse_args()
+os.chdir('الوحدات/')chdir('modules/')
+المحلل اللغوي = argparse.ArgumentParser(وصف = "Framework Hunner")ArgumentParser(description="Framework Hunner")
+parser.add_argument('تسجيل الدخول', مساعدة='البريد الإلكتروني المستهدف')add_argument('login', help='Target email')
+parser.add_argument('كلمة المرور'، مساعدة='قائمة كلمات المرور')add_argument('password', help='Password list')
+الحجج = parser.parse_args()parse_args()
 
-if args.login or args.password:
-	login = args.login
-	password_list = args.password
-	if os.path.exists(password_list):
-		file = open(password_list,'r')
-	else:
-		print(F+'File not exist'+E)
-		sys.exit(1)
-def banner():
-	text1 = '''
-___  ___      _ _ _   _                             
-|  \/  |     (_) | | | |                            
-| .  . | __ _ _| | |_| |_   _ _ __  _ __   ___ _ __ 
-| |\/| |/ _` | | |  _  | | | | '_ \| '_ \ / _ \ '__|
-| |  | | (_| | | | | | | |_| | | | | | | |  __/ |   
-\_|  |_/\__,_|_|_\_| |_/\__,_|_| |_|_| |_|\___|_|   
+if إذا كان args.login أو args.password:login or args.password:
+تسجيل الدخول = args.loginlogin
+كلمة المرور_قائمة = args.passwordpassword
+إذا كان os.path.exists (password_list):if os.path.exists(password_list):
+ملف = مفتوح (password_list،'r') open(password_list,'r')
+آخر:else:
+طباعة (F+"الملف غير موجود"+E)print(F+'File not exist'+E)
+خروج النظام(1)exit(1)
+def تعريف بانر ():banner():
+النص 1 = ''' '''
+
+#    ____    _    ____  _  __       _    ___     
+#   |  _ \  / \  |  _ \| |/ /      / \  |_ _|    
+#   | | | |/ _ \ | |_) | ' /_____ / _ \  | |     
+#   | |_| / ___ \|  _ <| . \_____/ ___ \ | |     
+#   |____/_/___\_\_| \_\_|\_\  _/_/ __\_\___|_   
+#   |  _ \|  _ \     | |/ /   / \  | __ ) / _ \  
+#   | | | | |_) |____| ' /   / _ \ |  _ \| | | | 
+#   | |_| |  _ <_____| . \  / ___ \| |_) | |_| | 
+#   |____/|_| \_\    |_|\_\/_/   \_\____/ \___/  
+#                                                
+
+>     \_\\___/ \__|
                                                     
 
 	'''
 	text2 = '''
 	          _ _                                    
-  /\/\   __ _(_) | /\  /\_   _ _ __  _ __   ___ _ __ 
- /    \ / _` | | |/ /_/ / | | | '_ \| '_ \ / _ \ '__|
-/ /\/\ \ (_| | | / __  /| |_| | | | | | | |  __/ |   
-\/    \/\__,_|_|_\/ /_/  \__,_|_| |_|_| |_|\___|_|   
                                                      
 	'''
 	if random.randrange(0,1) == 0:
